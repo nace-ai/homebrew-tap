@@ -6,9 +6,9 @@
 class Kapitsa < Formula
   desc "Fast local Qwen inference for Apple silicon, with an OpenAI-compatible server"
   homepage "https://github.com/nace-ai/kapitsa"
-  url "https://github.com/nace-ai/kapitsa/releases/download/v0.1.31/kapitsa-0.1.31-darwin-arm64.tar.gz"
-  version "0.1.31"
-  sha256 "5b9f21e2d3f82ea7ba44eddf880d684ed1bbd51b4172613372858e88a8f2f63d"
+  url "https://github.com/nace-ai/kapitsa/releases/download/v0.1.32/kapitsa-0.1.32-darwin-arm64.tar.gz"
+  version "0.1.32"
+  sha256 "84010f14e33c3c1314dbc542942d58f0c9f38c47d622bbe4a80a564c7e013b64"
   license "Apache-2.0"
 
   head do
@@ -38,6 +38,7 @@ class Kapitsa < Formula
       Then open http://127.0.0.1:8000 to chat, or use the API at http://127.0.0.1:8000/v1
       (OpenAI chat completions and Responses, Anthropic Messages).
       Or start a coding agent on it in one command: kapitsa claude, kapitsa codex, kapitsa opencode, kapitsa pi.
+      Measure it on this Mac and add yours to the community results: kapitsa bench --submit
       Models are stored in ~/.cache/kapitsa/models (KAPITSA_HOME moves them).
     EOS
   end
