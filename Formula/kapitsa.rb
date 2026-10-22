@@ -6,9 +6,9 @@
 class Kapitsa < Formula
   desc "Fast local Qwen inference for Apple silicon, with an OpenAI-compatible server"
   homepage "https://github.com/nace-ai/kapitsa"
-  url "https://github.com/nace-ai/kapitsa/releases/download/v0.2.6/kapitsa-0.2.6-darwin-arm64.tar.gz"
-  version "0.2.6" # Homebrew reads "64" from this file name on hosts other than GitHub
-  sha256 "3d61cc8c4d70cd7a543ce3b8ef14300b005430386742c519f9a61143800734bb"
+  url "https://github.com/nace-ai/kapitsa/releases/download/v0.2.7/kapitsa-0.2.7-darwin-arm64.tar.gz"
+  version "0.2.7" # Homebrew reads "64" from this file name on hosts other than GitHub
+  sha256 "6753663259cff878a3f5180330c84972b3d5b0b032949868126c1735ac5e6bc1"
   license "Apache-2.0"
 
   head do
