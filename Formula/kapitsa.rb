@@ -6,9 +6,9 @@
 class Kapitsa < Formula
   desc "Fast local Qwen inference for Apple silicon, with an OpenAI-compatible server"
   homepage "https://github.com/nace-ai/kapitsa"
-  url "https://github.com/nace-ai/kapitsa/releases/download/v0.2.14/kapitsa-0.2.14-darwin-arm64.tar.gz"
-  version "0.2.14"
-  sha256 "c2df478b95b13bc03e4cb67546d952f02eb83bc181a274bf671c1b8d692db03e"
+  url "https://github.com/nace-ai/kapitsa/releases/download/v0.2.15/kapitsa-0.2.15-darwin-arm64.tar.gz"
+  version "0.2.15"
+  sha256 "cdf7a91a7ad0ec07e532566f2b5cc0e6368df2abf9cddfa1682eb3a3988e3bd4"
   license "Apache-2.0"
 
   head do
@@ -23,10 +23,12 @@ class Kapitsa < Formula
     if build.head?
       ENV.O3 # Homebrew would compile with -Os instead of the build's -O3; the benchmarks ran -O3
       system "cmake", "-S", ".", "-B", "build", *std_cmake_args
-      system "cmake", "--build", "build", "--target", "kapitsa"
+      system "cmake", "--build", "build", "--target", "kapitsa", "systemone"
       bin.install "build/kapitsa"
+      bin.install "build/systemone" => "kapitsa-systemone"
+      bin.install "tools/drex_pointer.py" => "kapitsa-drex-pointer"
     else
-      bin.install "kapitsa"
+      bin.install "kapitsa", "kapitsa-systemone", "kapitsa-drex-pointer"
     end
     pkgshare.install "LICENSE", "THIRD_PARTY_NOTICES"
     # `kapitsa bench compare` runs this harness; find_harness() looks for it in pkgshare, so a brew install needs no
@@ -58,6 +60,9 @@ class Kapitsa < Formula
     assert_match "kapitsa opencode", shell_output("#{bin}/kapitsa --help")
     # the harness ships with the formula: bench compare finds it with no checkout and no environment variable
     assert_match "kapitsa bench compare", shell_output("#{bin}/kapitsa bench compare --help")
+    # Drex decision models: --help exits before the GPU and the model load
+    assert_match "usage: systemone", shell_output("#{bin}/kapitsa-systemone --help 2>&1")
+    assert_match "usage: drex_pointer.py", shell_output("#{bin}/kapitsa-drex-pointer 2>&1", 1)
     # model names resolve offline
     ENV["KAPITSA_HOME"] = testpath.to_s
     assert_match "qwen3.5-4b", shell_output("#{bin}/kapitsa pull --dry-run --json 4b")
