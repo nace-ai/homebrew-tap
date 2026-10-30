@@ -11,6 +11,13 @@ class Kapitsa < Formula
   sha256 "6ab51842604e5d5b7c7cdff3c1033f57c9ab30cb6309a093624b06130b56cad1"
   license "Apache-2.0"
 
+  bottle do
+    root_url "https://github.com/nace-ai/kapitsa/releases/download/v0.2.25"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "47c09e9ee1fd3813db9ab944c96cc7456d7ef7511c69766049dbd51e54924ab6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "47c09e9ee1fd3813db9ab944c96cc7456d7ef7511c69766049dbd51e54924ab6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "47c09e9ee1fd3813db9ab944c96cc7456d7ef7511c69766049dbd51e54924ab6"
+  end
+
   head do
     url "https://github.com/nace-ai/kapitsa.git", branch: "main"
     depends_on "cmake" => :build
