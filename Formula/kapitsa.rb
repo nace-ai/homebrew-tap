@@ -1,21 +1,22 @@
 # Homebrew formula for Kapitsa (by Nace AI, https://nace.ai), prepared for a public release and not published yet.
 # It installs the release binary that packaging/release/build.sh makes (the same tarball install.sh downloads), so
 # nothing compiles; `brew install --HEAD` builds main from source instead. At each release the workflow
-# .github/workflows/release.yml sets version, url and sha256 and puts this file in the tap nace-ai/homebrew-tap as
-# Formula/kapitsa.rb, so that `brew install nace-ai/tap/kapitsa` works.
+# .github/workflows/release.yml sets version, url and sha256, adds the `bottle do` block (packaging/homebrew/add_bottle.py)
+# and puts this file in the tap nace-ai/homebrew-tap as Formula/kapitsa.rb, so that `brew install nace-ai/tap/kapitsa`
+# works. The bottle is what spares a Mac with stale or missing Command Line Tools Homebrew's source-build checks.
 class Kapitsa < Formula
   desc "Fast local Qwen inference for Apple silicon, with an OpenAI-compatible server"
   homepage "https://github.com/nace-ai/kapitsa"
-  url "https://github.com/nace-ai/kapitsa/releases/download/v0.2.25/kapitsa-0.2.25-darwin-arm64.tar.gz"
-  version "0.2.25"
-  sha256 "6ab51842604e5d5b7c7cdff3c1033f57c9ab30cb6309a093624b06130b56cad1"
+  url "https://github.com/nace-ai/kapitsa/releases/download/v0.2.26/kapitsa-0.2.26-darwin-arm64.tar.gz"
+  version "0.2.26"
+  sha256 "575269ea3553055729e89c88e9a4134cf84772770e0e8c810b54d2a4f70b1cd9"
   license "Apache-2.0"
 
   bottle do
-    root_url "https://github.com/nace-ai/kapitsa/releases/download/v0.2.25"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "47c09e9ee1fd3813db9ab944c96cc7456d7ef7511c69766049dbd51e54924ab6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "47c09e9ee1fd3813db9ab944c96cc7456d7ef7511c69766049dbd51e54924ab6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "47c09e9ee1fd3813db9ab944c96cc7456d7ef7511c69766049dbd51e54924ab6"
+    root_url "https://github.com/nace-ai/kapitsa/releases/download/v0.2.26"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fd3f2cfc3f4fa59fa19f6f8dbc4aa16eac0b6d5faf2ef9578531d8757c68e98b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fd3f2cfc3f4fa59fa19f6f8dbc4aa16eac0b6d5faf2ef9578531d8757c68e98b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fd3f2cfc3f4fa59fa19f6f8dbc4aa16eac0b6d5faf2ef9578531d8757c68e98b"
   end
 
   head do
