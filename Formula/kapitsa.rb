@@ -7,16 +7,16 @@
 class Kapitsa < Formula
   desc "Fast local Qwen inference for Apple silicon, with an OpenAI-compatible server"
   homepage "https://github.com/nace-ai/kapitsa"
-  url "https://github.com/nace-ai/kapitsa/releases/download/v0.2.33/kapitsa-0.2.33-darwin-arm64.tar.gz"
-  version "0.2.33"
-  sha256 "d61a17438a37ac7dde1f2545bf3722ad1b43cc96085e68d62dd0695419e9e3bb"
+  url "https://github.com/nace-ai/kapitsa/releases/download/v0.2.34/kapitsa-0.2.34-darwin-arm64.tar.gz"
+  version "0.2.34"
+  sha256 "230f65a9f93b868ea1d80659365832f6e6871fd07b65319e24a89dc3d2e9789e"
   license "Apache-2.0"
 
   bottle do
-    root_url "https://github.com/nace-ai/kapitsa/releases/download/v0.2.33"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "66365f38bed6561cfcd9dca4b13a13d5833e674191e6186274eb88ec0fef6b31"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "66365f38bed6561cfcd9dca4b13a13d5833e674191e6186274eb88ec0fef6b31"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "66365f38bed6561cfcd9dca4b13a13d5833e674191e6186274eb88ec0fef6b31"
+    root_url "https://github.com/nace-ai/kapitsa/releases/download/v0.2.34"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f2e3fb7103e8d16c2a2fdb3f1e6f172d37459d474876d21921d6c931d75a8c39"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f2e3fb7103e8d16c2a2fdb3f1e6f172d37459d474876d21921d6c931d75a8c39"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f2e3fb7103e8d16c2a2fdb3f1e6f172d37459d474876d21921d6c931d75a8c39"
   end
 
   head do
